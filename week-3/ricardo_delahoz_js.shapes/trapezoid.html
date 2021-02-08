@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			var width = prompt("Input width: ");
+			var height = prompt("Input height: ");
+
+			console.log("Input width: " + width);
+			console.log("Input height: " + height);
+
+			if (height > width / 2) {
+				console.log("IMPOSSIBLE SHAPE!");
+			} else {
+				var stars = width;
+				console.log("\nShape:");
+				for (var i = 0; i < height; i++) {
+					var str = "";
+					var spaces = 0;
+
+					for (var j = height + i; j > 0; j--) {
+						str += " ";
+						spaces++;
+					}
+					for (var j = 0; j < width - 2 * i; j++) {
+						str += "*";
+					}
+					console.log(str + "\tSpaces: " + spaces + " Stars: " + stars);
+					stars -= 2;
+				}
+			}
+		</script>
+	</body>
+</html>
