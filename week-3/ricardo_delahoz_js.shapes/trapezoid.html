@@ -21,17 +21,13 @@
 				console.log("\nShape:");
 				for (var i = 0; i < height; i++) {
 					var str = "";
-					var spaces = 0;
-
 					for (var j = height + i; j > 0; j--) {
 						str += " ";
-						spaces++;
 					}
 					for (var j = 0; j < width - 2 * i; j++) {
 						str += "*";
 					}
-					console.log(str + "\tSpaces: " + spaces + " Stars: " + stars);
-					stars -= 2;
+					console.log(str);
 				}
 			}
 		</script>

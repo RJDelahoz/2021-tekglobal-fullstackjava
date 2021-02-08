@@ -14,16 +14,23 @@
 			console.log("Input height: " + height);
 
 			console.log("\nShape:");
-			for (var i = 0; i < height; i++) {
+			for (var i = 0; i < height; i++) { //Rows
 				var str = "";
-				for (var j = 0; j < width; j++) {
-					if (i % 2 == 0) {
-						if (j % 2 == 0) str += "*";
-						else str += " ";
-					} else {
-						if (j % 2 == 0) str += " ";
-						else str += "*";
-					}
+				for (var j = 0; j < width; j++) { //Columns
+					// if (i % 2 == 0) {
+						if (j % 2 == 0) {
+							str += "*";
+						} else { 
+							str += " ";
+						}
+					// }
+					// } else {
+					// 	if (j % 2 == 0) {
+					// 		str += " ";
+					// 	} else {
+					// 		str += "*";
+					// 	}
+					// }
 				}
 				console.log(str);
 			}
