@@ -8,22 +8,52 @@
 	</head>
 	<body>
 		<script>
-			var arr = "1000 + 6^ - 5^ + 1".replace(/\s+/g, '');
+			var arr = prompt("Input: ").split(";");
 
-			var nums = arr.split(/[^0-9]/g).filter(Boolean);
-			var op = arr.split(/[0-9]/g).filter(Boolean);
-			
-			for (var i = 0; i < arr.length; i++) {
-				var temp = ""
-				var exp = arr[i].split(" ");
-
-				for (var j = 0; j < exp.length; j++) {
-					if (exp[j].includes("^")) {
-						exp[j] = square["^"](parseInt(exp[j].replace("^", "")));
+			for (var i = 0; i < arr.length-1; i++) {
+				var exp = arr[i].replace(/\s+/g, "");
+				var nums = exp.split(/[^0-9]/g).filter(Boolean);
+				var op = exp.replace(/[0-9]/g , "").split("").filter(Boolean);
+				
+				nums.reverse();
+				op.reverse();
+				
+				while (op.length != 0) {
+					var operator = op.pop();
+					switch (operator) {
+						case "+":
+							var x = parseInt(nums.pop());
+							var y = parseInt(nums.pop());
+							if (op.length > 0) {
+								var temp = op.pop();
+								if (temp == "^") {
+									y *= y;
+								} else {
+									op.push(temp);
+								}
+							}
+							nums.push(x + y);
+							break;
+						case "-":
+							var x = parseInt(nums.pop());
+							var y = parseInt(nums.pop());
+							if (op.length > 0) {
+								var temp = op.pop();
+								if (temp == "^") {
+									y *= y;
+								} else {
+									op.push(temp);
+								}
+							}
+							nums.push(x - y);
+							break;
+						case "^":
+							var x = parseInt(nums.pop());
+							nums.push(x * x);
+							break;
 					}
-					temp += exp[j];
 				}
-				console.log(eval(temp));
+				console.log(nums.pop());
 			}
 		</script>
 	</body>
