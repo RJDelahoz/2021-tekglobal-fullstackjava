@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-	</head>
-	<body>
-		<script>
-			var exp = prompt("What is your input?");
-			console.log(eval(exp));
-		</script>
-	</body>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		var exp = prompt("Input: ").replace(/\s+/g, '');
+
+		var num = exp.split(/[^0-9]/g).filter(Boolean);
+		var op = exp.split(/[0-9]/g).filter(Boolean);
+		num.reverse();
+		op.reverse();		
+
+		while (op.length != 0) {
+			switch (op.pop()) {
+				case "+":
+					var x = parseInt(num.pop());
+					var y = parseInt(num.pop());
+					num.push(x + y);
+					break;
+				case "-":
+					var x = parseInt(num.pop());
+					var y = parseInt(num.pop());
+					num.push(x - y);
+					break;
+			}
+		}
+		console.log(num.pop());
+
+	</script>
+</body>
+
 </html>

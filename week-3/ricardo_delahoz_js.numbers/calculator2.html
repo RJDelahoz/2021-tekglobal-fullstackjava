@@ -1,19 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-	</head>
-	<body>
-		<script>
-			var arr = prompt("What is your input?").split(';');
 
-			console.log("Array: " + arr);
-            for(var i = 0; i < arr.length; i++) {
-                console.log(eval(arr[i]));
-            }
-		</script>
-	</body>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		var arr = prompt("Input: ").split(';');
+
+		for (var i = 0; i < arr.length-1; i++) {
+			arr[i].replace(/\s+/g, '');
+			var num = arr[i].split(/[^0-9]/g).filter(Boolean);
+			var op = arr[i].split(/[0-9]/g).filter(Boolean);
+
+			num.reverse();
+			op.reverse();
+			while (op.length != 0) {
+				switch (op.pop()) {
+					case "+":
+						var x = parseInt(num.pop());
+						var y = parseInt(num.pop());
+						num.push(x + y);
+						break;
+					case "-":
+						var x = parseInt(num.pop());
+						var y = parseInt(num.pop());
+						num.push(x - y);
+						break;
+				}
+			}
+			console.log(num.pop());
+		}
+		
+	</script>
+</body>
+
 </html>
