@@ -240,3 +240,11 @@ DROP TABLE tablename [RESTRICT | CASCADE]; -- DEF restrict
 -   Privileges are added using grant.
 -   Privileges are removed using revoke.
 -   Users are removed by drop user
+
+```SQL
+CREATE USER username IDENTIFIED BY 'password';
+
+GRANT [SELECT | UPDATE | INSERT] ON *.* TO 'username';
+
+REVOKE [SELECT | UPDATE | INSERT] ON *.* FROM 'username';
+```
