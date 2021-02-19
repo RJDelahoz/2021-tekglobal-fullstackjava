@@ -188,7 +188,7 @@ DELETE FROM employees
 WHERE employeeNumber = 28; -- one row deleted
 SELECT count(*)
     FROM employees; -- returns 22;
-ROLLBACK; -- Acidentally KO'd a legendary pokemon...restart game
+ROLLBACK; -- Accidentally KO'd a legendary pokemon...restart game
 
 SELECT count(*)
     FROM employees;	-- returns 23
