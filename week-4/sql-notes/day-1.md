@@ -100,10 +100,10 @@ _Minimize redundancy and simplify maintenance of data_
 -   DATA QUERY LANGUAGE (DQL)
 -   TRANSACTION CONTROL LANGUAGE (TCL)
 -   DATA CONTROL LANGUAGE (DCL)
-
+---
 ## DQL
 
-_Selection of specific columns from a table is termed as a projection operation in relational algebra._
+*Selection of specific columns from a table is termed as a projection operation in relational algebra.*
 
 ```SQL
 /* select structure */
@@ -126,7 +126,7 @@ SELECT
 -   GROUP BY clause specifies how to group results
 -   HAVING clause selects among groups
 -   ORDER BY clause specifies the row ordering
-
+---
 ## DML
 
 ```SQL
@@ -156,6 +156,48 @@ TRUNCATE tablename;
 
 /* Delete is a DML command whereas truncate is DDL command. Truncate can be used to delete the entire data of the table without maintaining the integrity of the table.
 On the other hand , delete statement can be used for deleting the specific data. With delete command we can’t bypass the integrity enforcing mechanisms. */
+```
+---
+## TCL
 
+-   When 2 or more DML statements execute, the DB can ensure that either all succeed or all fail.
+-   When all statements "fail", the DB remains unchanged from its initial state.
+-   This done using transactions.
 
+```SQL
+START transaction;
+...[one or more DML statements]
+rollback; 
+-- or
+commit;
+```
+**START** begins transaction
+
+**ROLLBACK** is usually executed within a procedure's exception handler.
+
+**COMMIT** is issued after all statements successfully executed.
+
+*Think of these like save points in video games.*
+
+```SQL
+SELECT count(*) 
+    FROM employees; -- returns 23 
+
+START transaction; -- the line before is the save point
+DELETE FROM employees
+WHERE employeeNumber = 28; -- one row deleted
+SELECT count(*)
+    FROM employees; -- returns 22;
+ROLLBACK; -- Acidentally KO'd a legendary pokemon...restart game
+
+SELECT count(*)
+    FROM employees;	-- returns 23
+```
+*Other users will not see changes until we commit the transaction.*
+
+## DDL
+
+-   A DBMS maintains multiple systems aand user databases. A "database" om this context is unique container for tables.
+```SQL
+CREATE DATABASE databaseName;
 ```
