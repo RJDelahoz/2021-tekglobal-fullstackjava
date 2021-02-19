@@ -197,7 +197,46 @@ SELECT count(*)
 
 ## DDL
 
--   A DBMS maintains multiple systems aand user databases. A "database" om this context is unique container for tables.
+-   A DBMS maintains multiple systems aand user databases. A "database" in this context is unique container for tables.
 ```SQL
 CREATE DATABASE databaseName;
 ```
+
+-   Table definitions define the table name, the fields within the
+table, and constraints/relationships for the fields.
+```SQL
+CREATE TABLE tablename (
+    fieldname datatype,
+    ...
+);
+```
+
+-   ALTER TABLE allows us to change an existing table.
+    -   ADD  
+        -   new column     
+        -   a constraint
+    -   DROP
+        -   existing column
+        -   existing constraint
+    -   MODIFY
+        -   existing column
+```SQL
+ALTER TABLE tablename 
+[ADD | DROP | MODIFY] [CONSTRAINT] columnName;
+
+RENAME TABLE tablename TO new_tablename;
+```
+
+-   DROP TABLE removes the table definition **and** data.
+*requires drop privilege*
+```SQL
+DROP TABLE tablename [RESTRICT | CASCADE]; -- DEF restrict
+```
+
+## DCL
+
+-   DCL allows us to create users with more or less limited roles.
+-   Users are added using create user.
+-   Privileges are added using grant.
+-   Privileges are removed using revoke.
+-   Users are removed by drop user
