@@ -3,14 +3,14 @@ package com.perscholas.java_basics;
 public class JavaBasicsClass {
 
     public static void main(String[] args) {
-//        part1();
-//        part2();
-//        part3();
-//        part4();
+        part1();
+        part2();
+        part3();
+        part4();
         part5();
-//        part6();
-//        part7();
-//        part8();
+        part6();
+        part7();
+        part8();
     }
 
     //    Write a program that declares 2 integer variables, assigns an integer to each, and adds them together.
@@ -48,7 +48,7 @@ public class JavaBasicsClass {
         int b = 2;
         System.out.println(b);
 
-        int result = a/b;
+        int result = a / b;
         System.out.printf("%d / %d = %d\n\n", a, b, result);
     }
 
@@ -58,7 +58,7 @@ public class JavaBasicsClass {
     private static void part5() {
         double a = 100;
         double b = 2;
-        double result = a/b;
+        double result = a / b;
         System.out.printf("%.2f / %.2f = %.2f\n", a, b, result);
         System.out.printf("%.2f / %.2f = %d\n\n", a, b, (int) result);
     }
@@ -68,7 +68,7 @@ public class JavaBasicsClass {
     private static void part6() {
         int x = 5;
         int y = 6;
-        int q = y/x;
+        int q = y / x;
         System.out.printf("%d / %d = %d\n\n", x, y, q);
         //q = (double) y;  Error
         //System.out.print(q);
@@ -93,10 +93,10 @@ public class JavaBasicsClass {
         double cappuccino = 3.00;
         double espresso = 2.75;
 
-        double subtotal = (3*coffee) + (4*cappuccino) + (2*espresso);
+        double subtotal = (3 * coffee) + (4 * cappuccino) + (2 * espresso);
         double totalSale;
         final double SALES_TAX = 0.0875;
-        totalSale = subtotal+(subtotal*SALES_TAX);
+        totalSale = subtotal + (subtotal * SALES_TAX);
         System.out.printf("Total Sale: $%.2f", totalSale);
     }
 
