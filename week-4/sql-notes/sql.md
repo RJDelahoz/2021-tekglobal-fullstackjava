@@ -181,4 +181,6 @@ CREATE USER username IDENTIFIED BY 'password';
 GRANT [SELECT | UPDATE | INSERT] ON *.* TO 'username';
 
 REVOKE [SELECT | UPDATE | INSERT] ON *.* FROM 'username';
+
+alter table employees drop constraint constraint_name;
 ```
