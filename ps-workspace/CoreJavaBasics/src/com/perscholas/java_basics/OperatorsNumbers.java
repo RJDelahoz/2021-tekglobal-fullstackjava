@@ -49,7 +49,7 @@ public class OperatorsNumbers {
     // 0010 1100 0110 0111
     private static void part2() {
         System.out.println("\n0010 -> 2");
-        System.out.println("1001 -> 5");
+        System.out.println("1001 -> 9");
         System.out.println("0011 0100 -> 52");
         System.out.println("0111 0010 -> 114");
         System.out.println("0010 0001 1111 -> 543");
